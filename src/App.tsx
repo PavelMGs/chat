@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import Form from './components/Form/Form';
 import s from './App.module.scss';
-import axios from 'axios';
 import { host } from './utils/host';
 
 const App = () => {
@@ -13,7 +12,7 @@ const App = () => {
     
 
     function connect() {
-        socket.current = new WebSocket(`ws://${host}`);
+        socket.current = new WebSocket(`wss://${host}`);
 
         socket.current.onopen = () => {
             setConnected(true);
